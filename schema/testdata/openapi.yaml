@@ -1,0 +1,43 @@
+openapi: "3.0.2"
+info:
+  version: 0.0.1
+  title: "OpenAPI spec for test"
+paths:
+  /test:
+    get:
+      summary: "get test"
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Test"
+components:
+  schemas:
+    Test:
+      type: object
+      properties:
+        foo:
+          type: string
+          maxLength: 36
+          example: "example-foo"
+        bar:
+          type: integer
+          enum:
+            - 1
+            - 2
+            - 4
+          example: 2
+      required:
+        - foo
+        - bar
+    TestRef:
+      type: object
+      properties:
+        test:
+          $ref: "#/components/schemas/Test"
+        id:
+          type: integer
+          enum: [0, 2, 4]
+          example: 4
