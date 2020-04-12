@@ -1,10 +1,9 @@
-// package schema provides helpers for openapi3 schema
+// Package schema provides helpers for openapi3 schema
 
 package schema
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 
 	"github.com/getkin/kin-openapi/openapi3"
@@ -15,7 +14,7 @@ type Validator struct {
 	swagger *openapi3.Swagger
 }
 
-// Swagger is a alias for openapi3.Swagger.
+// Swagger is alias for openapi3.Swagger.
 type Swagger = openapi3.Swagger
 
 // NewValidatorFromSwagger returns a new Validator from Swagger.
@@ -36,7 +35,7 @@ func NewValidatorFromPath(path string) (*Validator, error) {
 func (v *Validator) Validate(schemaName string, value interface{}) error {
 	vv, err := toI(value)
 	if err != nil {
-		return errors.New("value is not a valid json")
+		return fmt.Errorf("value is not a valid json: %w", err)
 	}
 	schema, ok := v.swagger.Components.Schemas[schemaName]
 	if !ok {
