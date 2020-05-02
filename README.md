@@ -8,8 +8,6 @@ Helpers for openapi3
 
 See test codes.
 
-<https://github.com/johejo/go-openapi3-helper/blob/master/schema/schema_test.go>
-
 ## License
 
 MIT
