@@ -13,6 +13,21 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Test"
+    post:
+      summary: "post test"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Test"
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Test"
 components:
   schemas:
     Test:
